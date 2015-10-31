@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Guessing Gmae</title>
+			<script>
+			
+			var target;
+			var guess_input_text;
+			var finished = false;
+			var array = ["aliceblue","antiquewhite","aqua","aquamarine","azure","beige","bisque ","black","blanchedalmond","blue","blueviolet","brown"];
+			function do_game(){
+				var radnom_number = Math.random() * 11;
+				var random_number_integer = Math.floor(radnom_number);
+				target = random_number_integer ;
+				target = array[target];
+				alert(target);
+				 
+				while (!finished){
+					guess_input_text = prompt("I am thinking of one of these colors:\n\n"+"aliceblue,antiquewhite,aqua,aquamarine,azure,beige,bisque,black,blanchedalmond,blue,blueviolet,brown\n\n"+"What color am I thinkning of?");		
+					if(guess_input_text == target){		
+					finished = true;
+					}
+				};
+			}
+		
+		</script>
+	</head>
+	<body onload="do_game()">
+	
+	</body>
+</html>

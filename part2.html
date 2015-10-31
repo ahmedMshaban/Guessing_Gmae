@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Guessing Gmae</title>
+			<script>
+		
+			var target;
+			var guess_input_text;
+			var finished = false;
+			var guesses = 0;
+			var array = ["aliceblue","antiquewhite","aqua","aquamarine","azure","beige","bisque ","black","blanchedalmond","blue","blueviolet","brown"];
+			
+			function do_game(){
+				var radnom_number = Math.random() * 11;
+				var random_number_integer = Math.floor(radnom_number);
+				target = random_number_integer ;
+				target = array[target];		 
+				while (!finished){
+					guess_input_text = prompt("I am thinking of one of these colors:\n\n"+"aliceblue,antiquewhite,aqua,aquamarine,azure,beige,bisque,black,blanchedalmond,blue,blueviolet,brown\n\n"+"What color am I thinkning of?");		
+					guesses += 1;
+					finished = check_guess();				
+				};
+			}
+			function check_guess() {
+				if(array.indexOf(guess_input_text) < 0){
+				alert("Sorry, I don't recognize your color\n"+"Please try again");
+				return false;
+				}
+				else {
+					if(guess_input_text > target){
+					    alert("Sorry, your guess is not correct!\n\n"+"Hint:your color is alphabetically higher than mine\n\n"+"Please try agian.");
+						return false;
+					}
+					else if(guess_input_text < target){
+					    alert("Sorry, your guess is not correct!\n\n"+"Hint:your color is alphabetically lower than mine\n\n"+"Please try agian.");
+						return false;	
+				}
+					else{
+					
+						if(target == array[0])
+						document.write("<body style='background-color:#F0F8FF'></body>");
+						else if(target == array[1])
+						document.write("<body style='background-color:#FAEBD7'></body>");
+						else if(target == array[2])
+						document.write("<body style='background-color:#00FFFF'></body>");
+						else if(target == array[3])
+						document.write("<body style='background-color:#7FFFD4'></body>");
+						else if(target == array[4])
+						document.write("<body style='background-color:#F0FFFF'></body>");
+						else if(target == array[5])
+						document.write("<body style='background-color:#F5F5DC'></body>");
+						else if(target == array[6])
+						document.write("<body style='background-color:#FFE4C4'></body>");
+						else if(target == array[7])
+						document.write("<body style='background-color:#000000'></body>");
+						else if(target == array[8])
+						document.write("<body style='background-color:#FFEBCD'></body>");
+						else if(target == array[9])
+						document.write("<body style='background-color:#0000FF'></body>");
+						else if(target == array[10])
+						document.write("<body style='background-color:#8A2BE2'></body>");
+						else if(target == array[11])
+						document.write("<body style='background-color:#A52A2A'></body>");
+						alert("Congratulation! you have guessed the color! " + target +
+						". \n It took you " + guesses +
+						"guesses to finish the number!"+"You can see the colour in the background");
+						return true;
+					}
+				}
+			}		
+		</script>
+	</head>
+	<body onload="do_game()">
+	
+	</body>
+</html>
